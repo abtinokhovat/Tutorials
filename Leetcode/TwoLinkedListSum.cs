@@ -4,7 +4,7 @@ public static class Solution1
 {
     public static ListNode AddTwoNumbers(ListNode l1, ListNode l2, bool carry = false)
     {
-        if(l1 == null && l2 == null && carry == false) return null!;
+        if (l1 == null && l2 == null && carry == false) return null!;
 
         var sum = (l1?.val ?? 0) + (l2?.val ?? 0) + (carry ? 1 : 0);
         return sum >= 10
