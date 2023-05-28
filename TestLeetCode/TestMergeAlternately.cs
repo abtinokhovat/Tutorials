@@ -14,7 +14,7 @@ public class TestMergeAlternately
 
         Assert.Equal("", merged);
     }
-    
+
     [Fact]
     public void Merge_Example1()
     {
@@ -25,7 +25,7 @@ public class TestMergeAlternately
 
         Assert.Equal("apbqcr", merged);
     }
-    
+
     [Fact]
     public void Merge_Example2()
     {
@@ -36,7 +36,7 @@ public class TestMergeAlternately
 
         Assert.Equal("apbqrs", merged);
     }
-    
+
     [Fact]
     public void Merge_Example3()
     {

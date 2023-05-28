@@ -16,13 +16,12 @@ public static class Solution3
             if (span1.Length > 0)
             {
                 merged.Append(span1[0]);
-                span1 = span1.Skip(1).ToArray();   
+                span1 = span1.Skip(1).ToArray();
             }
 
             if (span2.Length <= 0) continue;
             merged.Append(span2[0]);
             span2 = span2.Skip(1).ToArray();
-
         }
 
         return merged.ToString();
