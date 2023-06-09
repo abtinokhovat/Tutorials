@@ -25,7 +25,7 @@ public class TestArraysMedian
 
         Assert.Equal(2.5000, result);
     }
-    
+
     [Fact]
     public void Testcase3()
     {
@@ -36,7 +36,7 @@ public class TestArraysMedian
 
         Assert.Equal(2.0000, result);
     }
-    
+
     [Fact]
     public void Testcase4()
     {
