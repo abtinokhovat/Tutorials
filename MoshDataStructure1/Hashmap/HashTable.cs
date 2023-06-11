@@ -70,6 +70,8 @@ public class HashTable : IHashTable
 
     private Tuple<LinkedList<Entry>, Entry> GetBucketAndEntry(int key)
     {
+        var x = new Dictionary<int, int[]>();
+
         var bucket = this.GetBucket(key);
         var entry = bucket.FirstOrDefault(entry => entry.Key == key)!;
 
