@@ -20,7 +20,7 @@ public class HashTable : IHashTable
 
     public void Put(int key, string value)
     {
-        var (bucket, entry) = this.GetBucketAndEntry(key);
+        var (bucket, entry) = GetBucketAndEntry(key);
 
         // if key exists replace it
         if (entry != null)
@@ -31,26 +31,25 @@ public class HashTable : IHashTable
 
         // if key doesnt exists add
         bucket.AddLast(new Entry(key, value));
-
     }
 
     public string Get(int key)
     {
-        var entry = this.GetEntry(key);
+        var entry = GetEntry(key);
         return entry?.Value!;
     }
 
     public void Remove(int key)
     {
-        var (bucket, entry) = this.GetBucketAndEntry(key);
+        var (bucket, entry) = GetBucketAndEntry(key);
         if (entry == null) throw new Exception("Key does not exist.");
-        
+
         bucket.Remove(entry);
     }
 
     public bool Contains(int key)
     {
-        return this.GetBucket(key).Any(element => element.Key == key);
+        return GetBucket(key).Any(element => element.Key == key);
     }
 
     private int Hash(int number)
@@ -65,14 +64,14 @@ public class HashTable : IHashTable
 
     private Entry GetEntry(int key)
     {
-        return this.GetBucketAndEntry(key).Item2;
+        return GetBucketAndEntry(key).Item2;
     }
 
     private Tuple<LinkedList<Entry>, Entry> GetBucketAndEntry(int key)
     {
         var x = new Dictionary<int, int[]>();
 
-        var bucket = this.GetBucket(key);
+        var bucket = GetBucket(key);
         var entry = bucket.FirstOrDefault(entry => entry.Key == key)!;
 
         return new Tuple<LinkedList<Entry>, Entry>(bucket, entry);
@@ -86,7 +85,7 @@ public class HashTable : IHashTable
             Value = value;
         }
 
-        public int Key { get; set; }
+        public int Key { get; }
         public string Value { get; set; }
     }
 }

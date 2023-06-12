@@ -36,7 +36,7 @@ public class TestSolution744
 
         Assert.Equal('x', result);
     }
-    
+
     [Fact]
     public void TestCase4()
     {

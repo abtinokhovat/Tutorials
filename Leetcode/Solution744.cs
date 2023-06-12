@@ -6,7 +6,7 @@ public static class Solution744
     {
         if (letters[^1] <= target)
             return letters[0];
-        
+
         var start = 0;
         var end = letters.Length - 1;
 
