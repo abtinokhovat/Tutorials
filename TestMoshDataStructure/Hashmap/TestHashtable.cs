@@ -1,6 +1,6 @@
-using MoshDataStructure1.Hashmap;
+using MoshDataStructure.Hashmap;
 
-namespace TestMoshDataStructure1.Hashmap;
+namespace TestMoshDataStructure.Hashmap;
 
 public class TestHashtable
 {

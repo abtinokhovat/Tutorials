@@ -1,4 +1,4 @@
-namespace MoshDataStructure1.Hashmap;
+namespace MoshDataStructure.Hashmap;
 
 public interface IHashTable
 {

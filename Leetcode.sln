@@ -4,9 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leetcode", "Leetcode\Leetco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLeetCode", "TestLeetCode\TestLeetCode.csproj", "{B42D489C-B84F-40E1-8CF8-3E4F1E737ADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoshDataStructure1", "MoshDataStructure1\MoshDataStructure1.csproj", "{FA13D225-03DF-4375-8ECC-13C2E27290A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoshDataStructure", "MoshDataStructure\MoshDataStructure.csproj", "{FA13D225-03DF-4375-8ECC-13C2E27290A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMoshDataStructure1", "TestMoshDataStructure1\TestMoshDataStructure1.csproj", "{0AE75AB5-9139-4C44-A083-7872A1E157C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMoshDataStructure", "TestMoshDataStructure\TestMoshDataStructure.csproj", "{0AE75AB5-9139-4C44-A083-7872A1E157C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
