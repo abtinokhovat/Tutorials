@@ -15,13 +15,16 @@ public class TestBinaryTree
     [Fact]
     public void Builder_InOrder()
     {
-        var tree = new BinaryTree(new[] {20, 10, 30, 6, 14, 24, 3, 8, 26});
+        var tree = new BinaryTree(Array.Empty<int>());
         var i = tree.TraverseInOrder();
         var p = tree.TraversePreOrder();
         var ps = tree.TraversePostOrder();
 
+
         _testOutputHelper.WriteLine(i);
         _testOutputHelper.WriteLine(p);
         _testOutputHelper.WriteLine(ps);
+
+        _testOutputHelper.WriteLine(tree.Height.ToString());
     }
 }

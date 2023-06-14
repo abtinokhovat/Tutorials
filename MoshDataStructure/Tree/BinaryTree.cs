@@ -1,3 +1,6 @@
+using MoshDataStructure.CustomExtensions;
+
+
 namespace MoshDataStructure.Tree;
 
 public interface ITree
@@ -18,6 +21,8 @@ public class BinaryTree : ITree
     }
 
     public Node? Root { get; set; }
+
+    public int Height => CalcHeight(Root);
 
     public void Insert(int value)
     {
@@ -49,19 +54,19 @@ public class BinaryTree : ITree
     public string TraverseInOrder()
     {
         var str = TraverseInOrder(Root);
-        return str.Remove(str.Length - 1, 1);
+        return str.RemoveLast();
     }
 
     public string TraversePreOrder()
     {
         var str = TraversePreOrder(Root);
-        return str.Remove(str.Length - 1, 1);
+        return str.RemoveLast();
     }
 
     public string TraversePostOrder()
     {
         var str = TraversePostOrder(Root);
-        return str.Remove(str.Length - 1, 1);
+        return str.RemoveLast();
     }
 
     private static string TraverseInOrder(Node? node)
@@ -92,6 +97,15 @@ public class BinaryTree : ITree
         str += TraversePostOrder(node.Right);
         str += $"{node.Value},";
         return str;
+    }
+
+    private static int CalcHeight(Node? node)
+    {
+        if (node is null) return 0;
+        if (node.Left is null && node.Right is null) return 0;
+
+        var height = Math.Max(CalcHeight(node.Right), CalcHeight(node.Left));
+        return height + 1;
     }
 
     private Node FindNearestNode(int value)
