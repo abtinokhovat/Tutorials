@@ -9,6 +9,7 @@ public interface ITree
     string TraverseInOrder();
     string TraversePreOrder();
     string TraversePostOrder();
+    Dictionary<int, List<int>> TraverseLevelOrder();
     bool Equals(BinaryTree tree);
     bool ValidateBst();
     List<int> GetNodesAtDistance(int level);
@@ -126,6 +127,69 @@ public class BinaryTree : ITree
     {
         //return ValidateBstRecursive(Root);
         return ValidateBst(Root, int.MinValue, int.MaxValue);
+    }
+
+    public int MaxSumOfLevels()
+    {
+        var x = new Dictionary<int, List<int>>();
+        var levels = TraverseLevelOrder(Root, x);
+
+        var max = int.MinValue;
+        var maxLevel = -1;
+
+        foreach (var level in levels)
+        {
+            var sum = level.Value.Sum();
+
+            if (sum >= max)
+            {
+                max = sum;
+                maxLevel = level.Key + 1;
+            }
+            
+        }
+
+        return maxLevel;
+    }
+    
+    public long KthLargestLevelSum(Node root, int k) {
+        var x = new Dictionary<int, List<int>>();
+        var levels = TraverseLevelOrder(root, x);
+        
+        if(levels.Count < k) return -1;
+        var sums = new List<int>(levels.Count);
+
+        foreach (var level in levels)
+        {
+            var sum = 0;
+
+            foreach (var node in level.Value)
+            {
+                sum += node;
+            }
+        
+            sums.Add(sum);
+        }
+
+        sums.Sort((a, b) => b.CompareTo(a));;
+
+        return sums[k - 1];
+    }
+
+    private static Dictionary<int, List<int>> TraverseLevelOrder(Node? root, Dictionary<int, List<int>> levels,
+        int level = 0)
+    {
+        if (root is null) return levels;
+        if (root.Left is not null || root.Right is not null)
+        {
+            TraverseLevelOrder(root.Left, levels, level + 1);
+            TraverseLevelOrder(root.Right, levels, level + 1);
+        }
+
+        if (!levels.ContainsKey(level)) levels.Add(level, new List<int>());
+        levels[level].Add(root.Value);
+
+        return levels;
     }
 
     public bool ValidateBstRecursive()
