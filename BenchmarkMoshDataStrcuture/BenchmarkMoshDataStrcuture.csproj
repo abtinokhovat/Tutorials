@@ -5,10 +5,15 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>BenchmarkMoshDataStructure</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MoshDataStructure\MoshDataStructure.csproj" />
+        <PackageReference Include="BenchmarkDotNet" Version="0.13.5"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MoshDataStructure\MoshDataStructure.csproj"/>
     </ItemGroup>
 
 </Project>
