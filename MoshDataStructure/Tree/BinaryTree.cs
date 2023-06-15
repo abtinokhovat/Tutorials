@@ -25,6 +25,26 @@ public class BinaryTree : ITree
     {
         foreach (var value in values) Insert(value);
     }
+    
+    // create tree level order
+    public BinaryTree(IReadOnlyList<int> values)
+    {
+        Root = CreateTreeLevelOrder(values, 0);
+    }
+
+    private static Node? CreateTreeLevelOrder(IReadOnlyList<int> values, int index)
+    {
+        if (index >= values.Count)
+            return null;
+
+        var node = new Node(values[index])
+        {
+            Left = CreateTreeLevelOrder(values, 2 * index + 1),
+            Right = CreateTreeLevelOrder(values, 2 * index + 2)
+        };
+
+        return node;
+    }
 
     public Node? Root { get; set; }
 
