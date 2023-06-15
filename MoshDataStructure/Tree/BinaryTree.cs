@@ -11,6 +11,7 @@ public interface ITree
     string TraversePostOrder();
     bool Equals(BinaryTree tree);
     bool ValidateBst();
+    List<int> GetNodesAtDistance(int level);
 }
 
 public class BinaryTree : ITree
@@ -84,9 +85,21 @@ public class BinaryTree : ITree
         return str.RemoveLast();
     }
 
+    public Dictionary<int, List<int>> TraverseLevelOrder()
+    {
+        var levels = new Dictionary<int, List<int>>();
+        return TraverseLevelOrder(Root, levels);
+    }
+
     public bool Equals(BinaryTree tree)
     {
         return tree is not null && EqualsTo(Root, tree.Root);
+    }
+    
+    public List<int> GetNodesAtDistance(int distance)
+    {
+        var list = new List<int>();
+        return distance < 0 || distance > Height ? list : GetNodesAtDistance(Root, distance, list);
     }
 
     public bool ValidateBst()
@@ -99,6 +112,23 @@ public class BinaryTree : ITree
     {
         return ValidateBstRecursive(Root);
         //return ValidateBst(Root, int.MinValue, int.MaxValue);
+    }
+    
+    private static List<int> GetNodesAtDistance(Node? root, int distance, List<int> list)
+    {
+        if (root is null) return list;
+        if (distance == 0)
+        {
+            list.Add(root.Value);
+        }
+        else
+        {
+            distance--;
+            GetNodesAtDistance(root.Left, distance, list);
+            GetNodesAtDistance(root.Right, distance, list);
+        }
+
+        return list;
     }
 
     private static bool ValidateBst(Node? root, int min, int max)
