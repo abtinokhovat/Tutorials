@@ -10,7 +10,7 @@ public class TestBinaryTree
         public void Constructor_LevelOrderTraversal_ShouldCreateBinaryTree()
         {
             // Arrange
-            int[] levelOrder = { 5, 8, 9, 2, 1, 3, 7, 4, 6 };
+            int[] levelOrder = {5, 8, 9, 2, 1, 3, 7, 4, 6};
 
             // Act
             var tree = new BinaryTree(levelOrder);
@@ -18,16 +18,16 @@ public class TestBinaryTree
             // Assert
             Assert.NotNull(tree.Root);
             Assert.Equal(5, tree.Root.Value);
-            Assert.Equal(8, tree.Root.Left.Value);
-            Assert.Equal(9, tree.Root.Right.Value);
-            Assert.Equal(2, tree.Root.Left.Left.Value);
-            Assert.Equal(1, tree.Root.Left.Right.Value);
-            Assert.Equal(3, tree.Root.Right.Left.Value);
-            Assert.Equal(7, tree.Root.Right.Right.Value);
-            Assert.Equal(4, tree.Root.Left.Left.Left.Value);
-            Assert.Equal(6, tree.Root.Left.Left.Right.Value);
+            Assert.Equal(8, tree.Root.Left!.Value);
+            Assert.Equal(9, tree.Root.Right!.Value);
+            Assert.Equal(2, tree.Root.Left.Left!.Value);
+            Assert.Equal(1, tree.Root.Left.Right!.Value);
+            Assert.Equal(3, tree.Root.Right.Left!.Value);
+            Assert.Equal(7, tree.Root.Right.Right!.Value);
+            Assert.Equal(4, tree.Root.Left.Left.Left!.Value);
+            Assert.Equal(6, tree.Root.Left.Left.Right!.Value);
         }
-        
+
         [Fact]
         public void Insert_ShouldInsertNodeCorrectly()
         {
@@ -777,6 +777,6 @@ public class TestBinaryTree
 
             // Assert
             Assert.Equal(1, level);
-        }        
+        }
     }
 }
