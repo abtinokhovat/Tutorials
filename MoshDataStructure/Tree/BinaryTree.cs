@@ -26,25 +26,10 @@ public class BinaryTree : ITree
     {
         foreach (var value in values) Insert(value);
     }
-    
     // create tree level order
     public BinaryTree(IReadOnlyList<int> values)
     {
         Root = CreateTreeLevelOrder(values, 0);
-    }
-
-    private static Node? CreateTreeLevelOrder(IReadOnlyList<int> values, int index)
-    {
-        if (index >= values.Count)
-            return null;
-
-        var node = new Node(values[index])
-        {
-            Left = CreateTreeLevelOrder(values, 2 * index + 1),
-            Right = CreateTreeLevelOrder(values, 2 * index + 2)
-        };
-
-        return node;
     }
 
     public Node? Root { get; set; }
@@ -116,7 +101,7 @@ public class BinaryTree : ITree
     {
         return tree is not null && EqualsTo(Root, tree.Root);
     }
-    
+
     public List<int> GetNodesAtDistance(int distance)
     {
         var list = new List<int>();
@@ -127,6 +112,20 @@ public class BinaryTree : ITree
     {
         //return ValidateBstRecursive(Root);
         return ValidateBst(Root, int.MinValue, int.MaxValue);
+    }
+
+    private static Node? CreateTreeLevelOrder(IReadOnlyList<int> values, int index)
+    {
+        if (index >= values.Count)
+            return null;
+
+        var node = new Node(values[index])
+        {
+            Left = CreateTreeLevelOrder(values, 2 * index + 1),
+            Right = CreateTreeLevelOrder(values, 2 * index + 2)
+        };
+
+        return node;
     }
 
     public int MaxSumOfLevels()
@@ -146,32 +145,30 @@ public class BinaryTree : ITree
                 max = sum;
                 maxLevel = level.Key + 1;
             }
-            
         }
 
         return maxLevel;
     }
-    
-    public long KthLargestLevelSum(Node root, int k) {
+
+    public long KthLargestLevelSum(Node root, int k)
+    {
         var x = new Dictionary<int, List<int>>();
         var levels = TraverseLevelOrder(root, x);
-        
-        if(levels.Count < k) return -1;
+
+        if (levels.Count < k) return -1;
         var sums = new List<int>(levels.Count);
 
         foreach (var level in levels)
         {
             var sum = 0;
 
-            foreach (var node in level.Value)
-            {
-                sum += node;
-            }
-        
+            foreach (var node in level.Value) sum += node;
+
             sums.Add(sum);
         }
 
-        sums.Sort((a, b) => b.CompareTo(a));;
+        sums.Sort((a, b) => b.CompareTo(a));
+        ;
 
         return sums[k - 1];
     }
@@ -197,7 +194,7 @@ public class BinaryTree : ITree
         return ValidateBstRecursive(Root);
         //return ValidateBst(Root, int.MinValue, int.MaxValue);
     }
-    
+
     private static List<int> GetNodesAtDistance(Node? root, int distance, List<int> list)
     {
         if (root is null) return list;
