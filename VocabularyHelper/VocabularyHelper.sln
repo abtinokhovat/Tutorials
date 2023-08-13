@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VocabularyHelper", "VocabularyHelper\VocabularyHelper.csproj", "{AF8A7A33-F5F7-4DCF-B7A2-ECD411B9C674}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF8A7A33-F5F7-4DCF-B7A2-ECD411B9C674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF8A7A33-F5F7-4DCF-B7A2-ECD411B9C674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF8A7A33-F5F7-4DCF-B7A2-ECD411B9C674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF8A7A33-F5F7-4DCF-B7A2-ECD411B9C674}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
