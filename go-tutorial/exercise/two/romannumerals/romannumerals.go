@@ -11,19 +11,19 @@ type roman struct {
 }
 
 var m = [13]roman{
-	roman{1000, "M"},
-	roman{900, "CM"},
-	roman{500, "D"},
-	roman{400, "CD"},
-	roman{100, "C"},
-	roman{90, "XC"},
-	roman{50, "L"},
-	roman{40, "XL"},
-	roman{10, "X"},
-	roman{9, "IX"},
-	roman{5, "V"},
-	roman{4, "IV"},
-	roman{1, "I"},
+	{1000, "M"},
+	{900, "CM"},
+	{500, "D"},
+	{400, "CD"},
+	{100, "C"},
+	{90, "XC"},
+	{50, "L"},
+	{40, "XL"},
+	{10, "X"},
+	{9, "IX"},
+	{5, "V"},
+	{4, "IV"},
+	{1, "I"},
 }
 
 func ToRomanNumeral(input int) (string, error) {
